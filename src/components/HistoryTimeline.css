@@ -1,0 +1,171 @@
+.timeline {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem 1rem 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/* Transport bar: dark strip with white glyphs, independent of the page theme. */
+.transport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  background: #0a0a0a;
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  width: fit-content;
+  margin: 0 auto 0.7rem;
+}
+
+.transport-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  color: #e8e8e8;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.transport-button:hover:not(:disabled) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  opacity: 1;
+}
+
+.transport-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+
+.transport-button:disabled {
+  color: #4a4a4a;
+  cursor: default;
+  opacity: 1; /* the global button:hover fade would otherwise dim it further */
+}
+
+.transport-button.primary {
+  color: #fff;
+}
+
+.timeline-track {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.slider-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 120px;
+}
+
+.timeline-slider {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* Operation boundaries. The 8px inset matches half a slider thumb, so a tick
+   lines up with the thumb centre when the cursor sits on that frame. */
+.tick-strip {
+  position: relative;
+  height: 7px;
+  margin-top: 1px;
+  pointer-events: none;
+}
+
+.tick {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 5px;
+  margin-left: -0.5px;
+  background: var(--text-muted);
+  opacity: 0.5;
+}
+
+.tick.here {
+  height: 7px;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--accent);
+  opacity: 1;
+}
+
+.timeline-position {
+  font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  min-width: 6ch;
+  text-align: right;
+}
+
+.frame-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.45rem;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.op-tag,
+.phase-tag {
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.op-tag.stage {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.phase-tag.ok {
+  color: var(--focus-ok);
+  border-color: color-mix(in srgb, var(--focus-ok) 45%, transparent);
+  background: color-mix(in srgb, var(--focus-ok) 10%, transparent);
+}
+
+.phase-tag.warn {
+  color: var(--focus-warn);
+  border-color: color-mix(in srgb, var(--focus-warn) 45%, transparent);
+  background: color-mix(in srgb, var(--focus-warn) 10%, transparent);
+}
+
+.phase-tag.danger {
+  color: var(--focus-danger);
+  border-color: color-mix(in srgb, var(--focus-danger) 45%, transparent);
+  background: color-mix(in srgb, var(--focus-danger) 10%, transparent);
+}
+
+.phase-tag.move {
+  color: var(--focus-move);
+  border-color: color-mix(in srgb, var(--focus-move) 45%, transparent);
+  background: color-mix(in srgb, var(--focus-move) 10%, transparent);
+}
+
+.counter {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+}
+
+.frame-detail {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.45;
+}
